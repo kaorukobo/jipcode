@@ -50,4 +50,14 @@ RSpec.describe Jipcode do
       end
     end
   end
+
+  describe '.locate_by_addr_string' do
+    subject { Jipcode.locate_by_addr_string(address) }
+    let(:address) { '東京都千代田区永田町1-7-1' }
+
+    it 'Jipcode::FromAddressLocator.new.locate と同じ動作をする。' do
+      is_expected.to include(:zipcode)
+    end
+  end
+
 end
